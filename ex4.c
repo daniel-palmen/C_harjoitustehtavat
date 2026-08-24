@@ -8,28 +8,27 @@ int read_integer(void){
     }
     else if(number < 0){
         /*end clause*/
-        return 0;
+        return -1;
     }
     else{
-        printf("invalid input.");
+        printf("invalid input.\n");
         return 0;
     }
 }
 
 int main(){
-    int sum;
-    int counter;
-    float average;
-    printf("Enter positive numbers or negative to stop: ");
-    int number = read_integer();
-    if(number > 0){
-        counter++;
-        sum = sum + number;
-        average = sum / counter;
+    int number;
+    int sum = 0;
+    int counter = 0;
+    float average = 0;
+    while(number >= 0){
+        printf("Enter positive numbers or negative to stop: ");
+        number = read_integer();
+        if(number > 0){
+            counter++;
+            sum = sum + number;
+            average = sum / counter;
+        }
     }
-    else if(number < 0){
-        //*end loop
-    }
-    
-    printf("You entered %d positive numbers. The average is: %.2f", number, average);
+    printf("You entered %d positive numbers. The average is: %.2f", counter, average);
 }
