@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int read_range(int low, int high);
+
 int main(){
     int low = 1;
     int high = 6;

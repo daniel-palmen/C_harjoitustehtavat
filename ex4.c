@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int read_integer(void);
+
 int main(){
     int number;
     int sum = 0;
