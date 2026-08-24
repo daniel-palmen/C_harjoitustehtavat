@@ -2,17 +2,21 @@
 
 int read_integer(void){
     int number;
-    scanf("%d", &number);
-    if(number >= 1){
-        return number;
-    }
-    else if(number < 0){
-        /*end clause*/
-        return -1;
+    int result;
+    result = scanf("%d", &number);
+    if(result != 1){
+        printf("invalid input.\n");
+        while(getchar() != '\n');
+        return 0;
     }
     else{
-        printf("invalid input.\n");
-        return 0;
+        if(number >= 1){
+            return number;
+        }
+        else if(number < 0){
+            /*end clause*/
+            return -1;
+        }
     }
 }
 
