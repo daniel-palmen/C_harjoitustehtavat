@@ -1,5 +1,22 @@
 #include <stdio.h>
 
+int main(){
+    int number;
+    int sum = 0;
+    int counter = 0;
+    float average = 0;
+    while(number >= 0){
+        printf("Enter positive numbers or negative to stop: ");
+        number = read_integer();
+        if(number > 0){
+            counter++;
+            sum = sum + number;
+            average = sum / counter;
+        }
+    }
+    printf("You entered %d positive numbers. The average is: %.2f", counter, average);
+}
+
 int read_integer(void){
     int number;
     int result;
@@ -18,21 +35,4 @@ int read_integer(void){
             return -1;
         }
     }
-}
-
-int main(){
-    int number;
-    int sum = 0;
-    int counter = 0;
-    float average = 0;
-    while(number >= 0){
-        printf("Enter positive numbers or negative to stop: ");
-        number = read_integer();
-        if(number > 0){
-            counter++;
-            sum = sum + number;
-            average = sum / counter;
-        }
-    }
-    printf("You entered %d positive numbers. The average is: %.2f", counter, average);
 }
