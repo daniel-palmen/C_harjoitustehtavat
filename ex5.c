@@ -5,7 +5,7 @@ int read_range(int low, int high){
     int result;
     result = scanf("%d", &number);
     if(result != 1){
-        printf("Invalid input.\n");
+        printf("Enter a number.\n");
         while(getchar() != '\n');
         return 0;
     }
