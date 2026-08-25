@@ -5,7 +5,7 @@ int main(){
     int arvosana = -1;
     int choice = 1;
     
-    printf("How mady students: ");
+    printf("How many students: ");
     scanf("%d", &students);
     int numerot[students];
     for(int i = 0; i < students; i++){
@@ -18,11 +18,15 @@ int main(){
             while(arvosana == -1){
                 printf("Enter grade (0 - 5) for student %d or -1 to cancel: ", choice);
                 scanf("%d", &arvosana);
-                if(0<= arvosana <= 5){
+                if(0<= arvosana && arvosana <= 5){
                     numerot[choice -1] = arvosana;
+                }
+                else if(arvosana == -1){
+                    break;
                 }
                 else{
                     printf("Invalid grade!\n");
+                    arvosana = -1;
                 }
             }
         }
