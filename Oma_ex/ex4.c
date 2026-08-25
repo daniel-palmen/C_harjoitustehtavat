@@ -4,7 +4,7 @@ int read_integer(void);
 
 int main(){
     int number;
-    int sum = 0;
+    float sum = 0;
     int counter = 0;
     float average = 0;
     while(number >= 0){
