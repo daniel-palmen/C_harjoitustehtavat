@@ -10,14 +10,19 @@ int main(){
     fgets(str, 200, stdin);
     printf("Give modifiers: ");
     fgets(repl, 3, stdin);
-    value = replace_char(str, repl);
-    if(value == 0){
+    if(repl[0] == '\n' || repl[1] == '\n'){
         printf("The string was not modified.\n");
     }
     else{
-        printf("String was modified %d times.\n", value);
-        for(int i = 0; str[i] != '\n';i ++){
-            printf("%c",str[i]);
+        value = replace_char(str, repl);
+        if(value == 0){
+            printf("The string was not modified.\n");
+        }
+        else{
+            printf("String was modified %d times.\n", value);
+            for(int i = 0; str[i] != '\n';i ++){
+                printf("%c",str[i]);
+            }
         }
     }
 }
