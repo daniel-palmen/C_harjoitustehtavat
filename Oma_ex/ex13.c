@@ -43,6 +43,7 @@ int main(){
             }
 
         }
+        fclose(file);
         printf("Count of numbers: %d\n", count);
         printf("Smallest number: %d\n", smallest);
         printf("Largest number: %d\n", largest);
