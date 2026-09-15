@@ -20,7 +20,7 @@ int main(){
     file = fopen(name, "r");
     if(file == NULL){
         //error message
-        fprintf(stderr, "Opening file failed.\n");
+        fprintf(stderr, "Opening file \"%s\" failed.\n", name);
     }
     else{
         while(!feof(file)){
