@@ -25,6 +25,9 @@ int main(){
     else{
         while(!feof(file)){
             if(fgets(line, LINE_SIZE, file) != NULL){
+                if(ferror(file) != 0){
+                    fprintf(stderr,"Error while reading file.\n");
+                }
                 if(sscanf(line, "%d", &number) == 1){
                     if(first_line == 0){
                         largest = number;
