@@ -23,28 +23,33 @@ int main(){
         fprintf(stderr, "Opening file \"%s\" failed.\n", name);
     }
     else{
-        while(!feof(file)){
-            if(fgets(line, LINE_SIZE, file) != NULL){
-                if(ferror(file) != 0){
-                    fprintf(stderr,"Error while reading file.\n");
-                }
-                if(sscanf(line, "%d", &number) == 1){
-                    if(first_line == 0){
+        while(fgets(line, LINE_SIZE, file) != NULL){
+            for(int i = 0; line[i] != '\0'; i++){
+                if(line[i] >= '0' && line[i] <= '9'){
+                    if(sscanf(&line[i], "%d", &number) == 1){
+                        if(first_line == 0){
                         largest = number;
                         smallest = number;
                         first_line = 1;
-                    }
-                    if(number > largest){
-                        largest = number;
-                    }
-                    if(number < smallest){
-                        smallest = number;
-                    }
-                    count++;
+                        }
+                        if(number > largest){
+                            largest = number;
+                        }
 
+                        if(number < smallest){
+                            smallest = number;
+                        }
+                        count++;
+                        while(line[i] >= '0' && line[i] <= '9'){
+                            i++;
+                        }
+                        i--;
+                    }
                 }
             }
-
+        if(ferror(file) != 0){
+            fprintf(stderr,"Error while reading file.\n");
+        }
         }
         fclose(file);
         printf("Count of numbers: %d\n", count);
