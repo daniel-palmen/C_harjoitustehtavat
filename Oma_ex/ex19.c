@@ -45,10 +45,10 @@ int main(){
         fgets(input, 30, stdin);
         if(sscanf(input, "%d", &choice) == 1){
             if(choice == 1){
-                qsort(arr, sizeof(arr), sizeof(arr[0]), comp_price);
+                qsort(arr, count, sizeof(arr[0]), comp_price);
             }
             else if(choice == 2){
-                qsort(arr, sizeof(arr), sizeof(arr[0]), comp_name);
+                qsort(arr, count, sizeof(arr[0]), comp_name);
             }
 
         }
@@ -62,12 +62,12 @@ int main(){
 }
 
 int comp_price(const void *a, const void *b){
-    int x = *(const int *)a;
-    int y = *(const int *)b;
-    if(x < y){
+    const menu_item *x = a;
+    const menu_item *y = b;
+    if(x->price < y->price){
         return -1;
     }
-    if(x > y){
+    if(x->price > y->price){
         return 1;
     }
     return 0;
