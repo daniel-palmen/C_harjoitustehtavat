@@ -8,6 +8,9 @@ typedef struct menu_item_ {
     double price;
 } menu_item;
 
+int comp_price(const void *a, const void *b);
+int comp_name(const void *a, const void *b);
+
 int main(){
     char name[50];
     char line[60];
@@ -42,14 +45,26 @@ int main(){
         fgets(input, 30, stdin);
         if(sscanf(input, "%d", &choice) == 1){
             if(choice == 1){
-
+                qsort(arr, sizeof(arr), sizeof(arr[0]), comp_price);
             }
             else if(choice == 2){
-
+                qsort(arr, sizeof(arr), sizeof(arr[0]), comp_name);
             }
 
         }
         else{
             printf("Incorrect input.\n");
         }
+    }
+    for (int i = 0; i < count; i++) {
+        printf("%8.2f; %s\n", arr[i].price, arr[i].name);
+    }
+}
+
+int comp_price(const void *a, const void *b){
+
+}
+
+int comp_name(const void *a, const void *b){
+
 }

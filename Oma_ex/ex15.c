@@ -36,7 +36,6 @@ int main(){
     fclose(file);
 
     for (int i = 0; i < count; i++) {
-        //printf("%s; %.2f\n", arr[i].name, arr[i].price);
         printf("%8.2f; %s\n", arr[i].price, arr[i].name);
     }
 }
