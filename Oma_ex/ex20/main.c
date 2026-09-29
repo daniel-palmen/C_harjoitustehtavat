@@ -27,8 +27,8 @@ int main(){
     }
     set_debug_level(number);
     while(correct < 5){
-        message = "%d.Message", correct;
         random = rand() % 4;
+        sprintf(message, "%d.Message",correct);
         dprintf(random, message);
         correct ++;
     }
