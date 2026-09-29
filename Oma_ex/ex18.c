@@ -1,15 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main(){
-    int input;
-
-    while(input >= 0){
-        
-        if(input >= 0 && input <= 15){
-
+    char input[100];
+    int number;
+    int random;
+    srand(time(NULL));
+    while(number >= 0){
+        printf("Give number between 0-15: ");
+        fgets(input, 100, stdin);
+        if(sscanf(input, "%d", &number) == 1){
+            if(number < 0){
+                printf("Ending program.");
+            }
+            else if(number >= 0 && number <= 15){
+                random = rand();
+                printf("Hex value: %x\n", random);
+                random >> number;
+                random = random & 0x3F;
+                printf("Result: %04x\n",random);
+            }
+            else{
+                printf("Incorrect input\n");
+            }
         }
-        
-
+        else{
+            printf("Incorrect input\n");
+        }
     }
-
 }
