@@ -12,6 +12,6 @@ int dprintf(int debug_level, const char *fmt, ...){
         return 0;
     }
     else if(debug_level <= s_debug_level){
-        fprint(stderr, "[DBG%d] %s\n", debug_level, fmt);
+        fprintf(stderr, "[DBG%d] %s\n", debug_level, fmt);
     }
 }

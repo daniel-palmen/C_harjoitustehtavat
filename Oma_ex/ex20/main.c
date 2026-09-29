@@ -28,8 +28,8 @@ int main(){
     set_debug_level(number);
     while(correct < 5){
         message = "%d.Message", correct;
-        
+        random = rand() % 4;
+        dprintf(random, message);
         correct ++;
-
     }
 }
