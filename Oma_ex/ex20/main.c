@@ -7,6 +7,9 @@ int main(){
     char input[100];
     int number = 0;
     int correct = 0;
+    int random;
+    char *message;
+    srand(time(NULL));
     while(correct == 0){
         printf("Enter debug level in range 0-4: ");
         fgets(input, 100, stdin);
@@ -23,5 +26,10 @@ int main(){
         }
     }
     set_debug_level(number);
+    while(correct < 5){
+        message = "%d.Message", correct;
+        
+        correct ++;
 
+    }
 }
