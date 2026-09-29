@@ -4,7 +4,7 @@
 
 int main(){
     char input[100];
-    int number;
+    int number = 0;
     int random;
     srand(time(NULL));
     while(number >= 0){
@@ -16,8 +16,8 @@ int main(){
             }
             else if(number >= 0 && number <= 15){
                 random = rand();
-                printf("Hex value: %x\n", random);
-                random >> number;
+                printf("Random hex value: %x\n", random);
+                random = random >> number;
                 random = random & 0x3F;
                 printf("Result: %04x\n",random);
             }
