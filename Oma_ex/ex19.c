@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define MAX_LINE 100
 #define MAX_SIZE 40
 
@@ -74,5 +75,7 @@ int comp_price(const void *a, const void *b){
 }
 
 int comp_name(const void *a, const void *b){
-
+    const menu_item *x = a;
+    const menu_item *y = b;
+    return strcmp(x->name, y->name);
 }
