@@ -1,7 +1,7 @@
-#define max_len 100
+#define MAX_LEN 100
 
 typedef struct course{
-    char name[max_len];
+    char name[MAX_LEN];
     int score;
     int grade;
 } course;

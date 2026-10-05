@@ -18,7 +18,7 @@ void write_file(char *name, course *arr, char *file_name, int many){
 }
 
 void read_file(char *file_name){
-    char line[max_len];
+    char line[MAX_LEN];
     FILE *file = fopen(file_name, "r");
     printf("\n");
     while (fgets(line, sizeof(line), file) != NULL){
