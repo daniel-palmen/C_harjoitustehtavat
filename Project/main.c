@@ -9,14 +9,17 @@ typedef struct course{
     int grade;
 } course;
 
+void write_file(char *name, course *arr, char *file_name, int many);
+void read_file(char *file_name);
+
 int main(){
     char input[max_len];
     char name[max_len];
     char subject[max_len];
     int score;
     int many;
-    int count;
     course arr[max_len];
+    char file_name[] = "project_test.txt";
     printf("Welcome to Student Grade Calculator!\n");
     printf("Please enter your name: ");
     fgets(name, max_len, stdin);
@@ -25,6 +28,7 @@ int main(){
     sscanf(input, "%d", &many);
 
     for(int i = 0; i < many; i++){
+        printf("\n");
         printf("Enter subject %d name: ", i + 1);
         fgets(subject, max_len, stdin);
         subject[strcspn(subject, "\n")] = '\0';
@@ -52,10 +56,31 @@ int main(){
             arr[i].grade = 0;
         }
     }
+    write_file(name, arr, file_name, many);
+    read_file(file_name);
+}
 
-    for(int i = 0; i < many; i++){
-        printf("%s\n", arr[i].name);
-        printf("%d\n",arr[i].score);
-        printf("%d\n", arr[i].grade);
+void write_file(char *name, course *arr, char *file_name, int many){
+    float sum;
+    float average;
+    int i;
+    FILE *file = fopen(file_name, "w");
+    fprintf(file, "Student: %s\n", name);
+    fprintf(file, "Subject score grade\n");
+    for(i = 0; i < many; i++){
+        fprintf(file, "%s %d %d\n", arr[i].name, arr[i].score, arr[i].grade);
+        sum = sum + arr[i].grade;
     }
+    average = sum / i;
+    fprintf(file, "Average grade: %.2f", average);
+    fclose(file);
+}
+
+void read_file(char *file_name){
+    char line[max_len];
+    FILE *file = fopen(file_name, "r");
+    while (fgets(line, sizeof(line), file) != NULL){
+        printf("%s", line);
+    }
+    fclose(file);
 }
