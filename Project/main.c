@@ -46,12 +46,42 @@ int main(){
 
     for(int i = 0; i < many; i++){
         printf("\n");
-        printf("Enter subject %d name: ", i + 1);
-        fgets(subject, MAX_LEN, stdin);
+        while(checker == 0){
+            printf("Enter subject %d name: ", i + 1);
+            fgets(subject, MAX_SUBJECT, stdin);
+            if(subject[0] == '\n'){
+                printf("Subject cannot be empty.\n");
+            }
+            //if subject < MAX_SUBJECT then ends in \n
+            else if(strchr(subject, '\n') != NULL){
+                checker++;
+            }
+            else{
+                printf("Subject name too long (max %d characters)\n", MAX_SUBJECT - 1);
+                //empties stdin
+                int c;
+                while ((c = getchar()) != '\n' && c != EOF);
+            }
+        }
+        checker = 0;
         subject[strcspn(subject, "\n")] = '\0';
-        printf("Enter grade for %s (0-100): ", subject);
-        fgets(input, MAX_LEN, stdin);
-        sscanf(input, "%d", &score);
+        while(checker == 0){
+            printf("Enter grade for %s (0-100): ", subject);
+            fgets(input, MAX_LEN, stdin);
+            if(sscanf(input, "%d", &score) != 1){
+                printf("Enter a valid number (0-100)\n");
+            }
+            else if(score < 0){
+                printf("Grade cannot be negative.\n");
+            }
+            else if(score > 100){
+                printf("Grade cannot be larger than 100.\n");
+            }
+            else{
+                checker++;
+            }
+        }
+        checker = 0;
         strcpy(arr[i].name, subject);
         arr[i].score = score;
         arr[i].grade = make_grade(score);
