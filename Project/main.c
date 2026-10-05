@@ -4,6 +4,7 @@
 
 typedef struct course{
     char name[max_len];
+    int score;
     int grade;
 } course;
 
@@ -29,6 +30,6 @@ int main(){
         fgets(input, max_len, stdin);
         sscanf(input, "%d", &grade);
         strcpy(arr[i].name, subject);
-        arr[i].grade = grade;
+        arr[i].score = grade;
     }
 }
