@@ -1,13 +1,16 @@
 #include <stdio.h>
-#include <string.h>
 #define MAX 100
 
 int main(){
     char file_name[MAX];
-    char input[MAX];
+    FILE *file;
 
     pritnf("Anna tiedoston nimi: ");
-    fgets(input, MAX, stdin);
-    strcpy(input, file_name);
-    file_name[strcspn(file_name, "\n")] = '\0';
+    fgets(file_name, MAX, stdin);
+    for(int i = 0; file_name[i] != '\0'; i++){
+        if(file_name[i] == '\n'){
+            file_name[i] = '\0';
+        }
+    }
+    file = fopen(file_name, "r");
 }
