@@ -18,6 +18,9 @@ int main(){
         }
     }
     file = fopen(file_name, "r");
+    if(file == NULL){
+        pritnf("Tiedoston avaaminen epäonnistui.\n");
+    }
 
     while(!feof(file)){
         if(fgets(line, MAX, file)!= NULL){
@@ -39,6 +42,5 @@ int main(){
         }
         calculated = 0;
     }
-
     fclose(file);
 }
