@@ -7,11 +7,12 @@ void write_file(char *name, course *arr, char *file_name, int many){
     int i;
     FILE *file = fopen(file_name, "w");
     fprintf(file, "Student: %s\n", name);
-    fprintf(file, "Subject score grade\n");
+    fprintf(file, "%-20s %8s %8s\n","Subject", "score", "grade");
     for(i = 0; i < many; i++){
-        fprintf(file, "%s %d %d\n", arr[i].name, arr[i].score, arr[i].grade);
+        fprintf(file, "%-20s %8d %8d\n", arr[i].name, arr[i].score, arr[i].grade);
         sum = sum + arr[i].grade;
     }
+    fprintf(file, "\n");
     average = sum / i;
     fprintf(file, "Average grade: %.2f", average);
     fclose(file);

@@ -1,6 +1,7 @@
 Student: daniel
 
-Subject score grade
-eng 60 2
-math 30 0
-Average grade: 1.00
+Subject                 score    grade
+math                       70        3
+spanish                    70        3
+
+Average grade: 3.00
