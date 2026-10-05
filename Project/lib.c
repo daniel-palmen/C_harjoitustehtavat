@@ -30,7 +30,7 @@ void read_file(char *file_name){
         return;
     }
     printf("\n");
-    while (fgets(line, sizeof(line), file) != NULL){
+    while (fgets(line, MAX_LEN, file) != NULL){
         printf("%s", line);
     }
     fclose(file);
