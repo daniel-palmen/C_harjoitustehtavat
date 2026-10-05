@@ -26,6 +26,7 @@ int main(){
     for(int i = 0; i < many; i++){
         printf("Enter subject %d name: ", i);
         fgets(subject, max_len, stdin);
+        subject[strcspn(subject, "\n")] = '\0';
         printf("Enter grade for %s (0-100): ", subject);
         fgets(input, max_len, stdin);
         sscanf(input, "%d", &grade);
