@@ -11,3 +11,17 @@ typedef enum{
     byFirstName
 } sort_order;
 
+void sort_students(student *students, int count, sort_order sb);
+
+int main(){
+
+}
+
+void sort_students(student *students, int count, sort_order sb){
+    if (count <= 0){
+        count = 0;
+        while (students[count].id != 0) {
+            count++;
+        }
+    }
+}
