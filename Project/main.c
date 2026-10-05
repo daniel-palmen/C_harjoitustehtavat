@@ -6,7 +6,7 @@
 int main(){
     char input[MAX_LEN];
     char name[MAX_LEN];
-    char subject[MAX_LEN];
+    char subject[MAX_SUBJECT];
     int score;
     int many;
     course arr[MAX_LEN];
