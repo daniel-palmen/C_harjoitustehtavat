@@ -1,6 +1,11 @@
 #include <stdio.h>
 #define max_len 100
 
+typedef struct course{
+    char name[max_len];
+    int grade;
+} course;
+
 int main(){
     char input[max_len];
     char name[max_len];
@@ -14,6 +19,7 @@ int main(){
     printf("How many subjects do you want to calculate grades for?: ");
     fgets(input, max_len, stdin);
     sscanf(input, "%d", &many);
+
     for(int i = 0; i < many; i++){
         printf("Enter subject %d name: ", i);
         fgets(subject, max_len, stdin);
@@ -21,5 +27,4 @@ int main(){
         fgets(input, max_len, stdin);
         sscanf(input, "%d", &grade);
     }
-
 }
