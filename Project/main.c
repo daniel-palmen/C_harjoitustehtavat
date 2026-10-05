@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define max_len 100
 
 typedef struct course{
@@ -24,7 +25,7 @@ int main(){
     sscanf(input, "%d", &many);
 
     for(int i = 0; i < many; i++){
-        printf("Enter subject %d name: ", i);
+        printf("Enter subject %d name: ", i + 1);
         fgets(subject, max_len, stdin);
         subject[strcspn(subject, "\n")] = '\0';
         printf("Enter grade for %s (0-100): ", subject);
@@ -50,5 +51,11 @@ int main(){
         else{
             arr[i].grade = 0;
         }
+    }
+
+    for(int i = 0; i < many; i++){
+        printf("%s\n", arr[i].name);
+        printf("%d\n",arr[i].score);
+        printf("%d\n", arr[i].grade);
     }
 }
