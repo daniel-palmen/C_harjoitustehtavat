@@ -7,7 +7,7 @@ void write_file(char *name, course *arr, char *file_name, int many){
     int i;
     FILE *file = fopen(file_name, "w");
     fprintf(file, "Student: %s\n", name);
-    fprintf(file, "%-20s %8s %8s\n","Subject", "score", "grade");
+    fprintf(file, "%-21s %8s %8s\n","Subject", "score", "grade");
     for(i = 0; i < many; i++){
         fprintf(file, "%-20s %8d %8d\n", arr[i].name, arr[i].score, arr[i].grade);
         sum = sum + arr[i].grade;
