@@ -1,7 +1,6 @@
 Student: daniel
 
 Subject score grade
-math 80 4
-eng 90 5
-spa 60 2
-Average grade: 3.67
+eng 60 2
+math 30 0
+Average grade: 1.00
