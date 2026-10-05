@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define max_len 100
 
 typedef struct course{
@@ -13,6 +14,7 @@ int main(){
     int grade;
     int many;
     int count;
+    course arr[max_len];
     printf("Welcome to Student Grade Calculator!\n");
     printf("Please enter your name: ");
     fgets(name, max_len, stdin);
@@ -26,5 +28,7 @@ int main(){
         printf("Enter grade for %s (0-100): ", subject);
         fgets(input, max_len, stdin);
         sscanf(input, "%d", &grade);
+        strcpy(arr[i].name, subject);
+        arr[i].grade = grade;
     }
 }
