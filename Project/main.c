@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "lib.h"
 
 int main(){
@@ -10,7 +11,7 @@ int main(){
     int score;
     int many;
     course arr[MAX_LEN];
-    int checker = 0;
+    bool checker = 0;
     char file_name[] = "project_test.txt";
 
     printf("Welcome to Student Grade Calculator!\n");
@@ -54,7 +55,7 @@ int main(){
             }
             //if subject < MAX_SUBJECT then ends in \n
             else if(strchr(subject, '\n') != NULL){
-                checker++;
+                checker = 1;
             }
             else{
                 printf("Subject name too long (max %d characters)\n", MAX_SUBJECT - 1);
@@ -78,7 +79,7 @@ int main(){
                 printf("Grade cannot be larger than 100.\n");
             }
             else{
-                checker++;
+                checker = 1;
             }
         }
         checker = 0;
