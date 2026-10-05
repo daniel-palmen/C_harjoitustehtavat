@@ -1,7 +1,8 @@
 Student: daniel
 
 Subject                  score    grade
-cats                      100        5
 dogs                       60        2
+cats                       70        3
+mice                       80        4
 
-Average grade: 3.50
+Average grade: 3.00
