@@ -6,6 +6,10 @@ void write_file(char *name, course *arr, char *file_name, int many){
     float average;
     int i;
     FILE *file = fopen(file_name, "w");
+    if(file == NULL){
+        fprintf(stderr,"Failed to open file\n");
+        return;
+    }
     fprintf(file, "Student: %s\n", name);
     fprintf(file, "%-21s %8s %8s\n","Subject", "score", "grade");
     for(i = 0; i < many; i++){
@@ -21,6 +25,10 @@ void write_file(char *name, course *arr, char *file_name, int many){
 void read_file(char *file_name){
     char line[MAX_LEN];
     FILE *file = fopen(file_name, "r");
+    if(file == NULL){
+        fprintf(stderr,"Failed to open file\n");
+        return;
+    }
     printf("\n");
     while (fgets(line, sizeof(line), file) != NULL){
         printf("%s", line);
