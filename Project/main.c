@@ -66,6 +66,7 @@ int main(){
         }
         checker = 0;
         subject[strcspn(subject, "\n")] = '\0';
+
         while(checker == 0){
             printf("Enter grade for %s (0-100): ", subject);
             fgets(input, MAX_LEN, stdin);
@@ -83,6 +84,7 @@ int main(){
             }
         }
         checker = 0;
+
         strcpy(arr[i].name, subject);
         arr[i].score = score;
         arr[i].grade = make_grade(score);
