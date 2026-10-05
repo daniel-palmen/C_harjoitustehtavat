@@ -25,9 +25,24 @@ int main(){
         }
     }
     checker = 0;
-    printf("How many subjects do you want to calculate grades for?: ");
-    fgets(input, MAX_LEN, stdin);
-    sscanf(input, "%d", &many);
+
+    while(checker == 0){
+        printf("How many subjects do you want to calculate grades for?: ");
+        fgets(input, MAX_LEN, stdin);
+        if(sscanf(input, "%d", &many) != 1){
+            printf("Enter a number.\n");
+        }
+        else if(many > MAX_LEN){
+            printf("Too many courses (100 maximum).\n");
+        }
+        else if(many <= 0){
+            printf("Enter value 1 - 100\n");
+        }
+        else{
+            checker = 1;
+        }
+    }
+    checker = 0;
 
     for(int i = 0; i < many; i++){
         printf("\n");
