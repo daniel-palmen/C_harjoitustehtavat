@@ -10,10 +10,21 @@ int main(){
     int score;
     int many;
     course arr[MAX_LEN];
+    int checker = 0;
     char file_name[] = "project_test.txt";
+
     printf("Welcome to Student Grade Calculator!\n");
-    printf("Please enter your name: ");
-    fgets(name, MAX_LEN, stdin);
+    while(checker == 0){
+        printf("Please enter your name: ");
+        fgets(name, MAX_LEN, stdin);
+        if(name[0] != '\n'){
+            checker = 1;
+        }
+        else{
+            printf("Name cannot be empty.\n");
+        }
+    }
+    checker = 0;
     printf("How many subjects do you want to calculate grades for?: ");
     fgets(input, MAX_LEN, stdin);
     sscanf(input, "%d", &many);

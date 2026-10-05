@@ -1,7 +1,7 @@
 Student: daniel
 
 Subject                 score    grade
-math                       70        3
-spanish                    70        3
+math                      100        5
+grass                      50        1
 
 Average grade: 3.00
