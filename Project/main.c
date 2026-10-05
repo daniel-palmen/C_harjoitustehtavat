@@ -12,7 +12,7 @@ int main(){
     char input[max_len];
     char name[max_len];
     char subject[max_len];
-    int grade;
+    int score;
     int many;
     int count;
     course arr[max_len];
@@ -29,8 +29,26 @@ int main(){
         subject[strcspn(subject, "\n")] = '\0';
         printf("Enter grade for %s (0-100): ", subject);
         fgets(input, max_len, stdin);
-        sscanf(input, "%d", &grade);
+        sscanf(input, "%d", &score);
         strcpy(arr[i].name, subject);
-        arr[i].score = grade;
+        arr[i].score = score;
+        if(score >= 90){
+            arr[i].grade = 5;
+        }
+        else if(score >= 80){
+            arr[i].grade = 4;
+        }
+        else if(score >= 70){
+            arr[i].grade = 3;
+        }
+        else if(score >= 60){
+            arr[i].grade = 2;
+        }
+        else if(score >= 50){
+            arr[i].grade = 1;
+        }
+        else{
+            arr[i].grade = 0;
+        }
     }
 }
