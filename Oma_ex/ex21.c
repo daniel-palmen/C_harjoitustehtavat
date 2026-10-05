@@ -6,8 +6,8 @@ int main(){
     char file_name[MAX];
     FILE *file;
     char line[MAX];
-    unsigned char calculated;
-    int picked;
+    unsigned char calculated = 0;
+    unsigned int picked;
     char *prefix;
 
     printf("Anna tiedoston nimi: ");
@@ -23,7 +23,7 @@ int main(){
         if(fgets(line, MAX, file)!= NULL){
             char *star = strchr(line, '*');
             if(line[0]=='$' && strchr(line, '*') != NULL){
-                for(int i = 0; line[i] != '*'; i++){
+                for(int i = 1; line[i] != '*'; i++){
                     calculated ^= (unsigned char)line[i];
                 }
             }
@@ -37,6 +37,7 @@ int main(){
             printf("%s%s", prefix, line);
 
         }
+        calculated = 0;
     }
 
     fclose(file);
