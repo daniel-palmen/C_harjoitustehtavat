@@ -11,6 +11,7 @@ typedef struct course{
 
 void write_file(char *name, course *arr, char *file_name, int many);
 void read_file(char *file_name);
+int make_grade(int score);
 
 int main(){
     char input[max_len];
@@ -37,24 +38,7 @@ int main(){
         sscanf(input, "%d", &score);
         strcpy(arr[i].name, subject);
         arr[i].score = score;
-        if(score >= 90){
-            arr[i].grade = 5;
-        }
-        else if(score >= 80){
-            arr[i].grade = 4;
-        }
-        else if(score >= 70){
-            arr[i].grade = 3;
-        }
-        else if(score >= 60){
-            arr[i].grade = 2;
-        }
-        else if(score >= 50){
-            arr[i].grade = 1;
-        }
-        else{
-            arr[i].grade = 0;
-        }
+        arr[i].grade = make_grade(score);
     }
     write_file(name, arr, file_name, many);
     read_file(file_name);
@@ -84,4 +68,23 @@ void read_file(char *file_name){
         printf("%s", line);
     }
     fclose(file);
+}
+
+int make_grade(int score){
+    if(score >= 90){
+        return 5;
+    }
+    else if(score >= 80){
+        return 4;
+    }
+    else if(score >= 70){
+        return 3;
+    }
+    else if(score >= 60){
+        return 2;
+    }
+    else if(score >= 50){
+        return 1;
+    }
+    return 0;
 }
